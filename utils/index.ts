@@ -5,7 +5,7 @@ export async function fetchCars(filters: FilterProps) {
   const { make, year, model, fuel_type, limit } = filters
 
   const response = await axios.get(`http://localhost:8000/cars?make${make}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel_type}`)
-  
+
   const result = await response.data
 
   return result
@@ -37,4 +37,14 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   const rentalRatePerDay = basePricePerDay + mileageRate + ageRate
 
   return rentalRatePerDay.toFixed(0)
+}
+
+export const updateSearchParams = (type: string, value: string) => {
+  const searchParams = new URLSearchParams(window.location.search)
+
+  searchParams.set(type, value)
+
+  const newPathName = `${window.location.pathname}?${searchParams.toString()}`
+
+  return newPathName
 }

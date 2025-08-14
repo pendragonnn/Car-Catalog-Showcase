@@ -68,6 +68,14 @@ export const fuels = [
     title: "Electricity",
     value: "Electricity",
   },
+  {
+    title: "Hybrid",
+    value: "Hybrid",
+  },
+  {
+    title: "Diesel",
+    value: "Diesel",
+  },
 ];
 
 export const footerLinks = [
