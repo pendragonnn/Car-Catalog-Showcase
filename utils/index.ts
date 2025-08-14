@@ -1,8 +1,10 @@
-import { CarProps } from '@/types';
+import { CarProps, FilterProps } from '@/types';
 import axios from 'axios';
 
-export async function fetchCars() {
-  const response = await axios.get("http://localhost:8000/cars")
+export async function fetchCars(filters: FilterProps) {
+  const { make, year, model, fuel_type, limit } = filters
+
+  const response = await axios.get(`http://localhost:8000/cars?make${make}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel_type}`)
   
   const result = await response.data
 
