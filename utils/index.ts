@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function fetchCars(filters: FilterProps) {
   const { make, year, model, fuel_type, limit } = filters
 
-  const response = await axios.get(`http://localhost:8000/cars?make${make}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel_type}`)
+  const response = await axios.get(`http://localhost:8000/cars?make${make}&year=${year}&model=${model}&_ limit=${limit}&fuel_type=${fuel_type}`)
 
   const result = await response.data
 

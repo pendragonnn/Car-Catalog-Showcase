@@ -1,4 +1,4 @@
-import { Hero, SearchBar, CustomFilter, CarCard } from "@/component";
+import { Hero, SearchBar, CustomFilter, CarCard, ShowMore } from "@/component";
 import { fuels, yearsOfProduction } from "@/constant";
 import { fetchCars } from "@/utils";
 
@@ -43,6 +43,11 @@ export default async function Home({ searchParams }) {
                   />
                 ))}
               </div>
+
+              <ShowMore
+                pageNumber={(searchParams.limit || 10) / 10}
+                isNext={(searchParams.limit || 10) > allCars.length}
+              />
             </section>
           ) : (
             <div className="mt-16 flex justify-center items-center flex-col gap-2">
