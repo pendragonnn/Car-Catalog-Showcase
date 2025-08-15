@@ -11,8 +11,6 @@ export default async function Home({ searchParams }) {
     model: searchParams.model || '',
    });
 
-  console.log(allCars)
-
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 0 || !allCars
 
   return (
